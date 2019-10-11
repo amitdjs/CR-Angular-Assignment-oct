@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "movieName": "Captain America",
+    "movieType": "Action",
+    "releasedOn": "1920-07-04",
+    "ratings": "8",
+    "image": "captain_america.jpeg"
+  },
+  {
+    "id": "2",
+    "movieName": "Iron Man",
+    "movieType": "Action",
+    "releasedOn": "1965-04-04",
+    "ratings": "7",
+    "image": "iron_man.jpeg"
+  }
+]
