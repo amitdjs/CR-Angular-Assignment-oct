@@ -25,3 +25,27 @@
 .movies-form .mat-form-field {
   width: 100%;
 }
+
+@media (min-width: 260px) { 
+  .movies-form {
+    width: 265px;
+  }
+}
+
+
+@media (min-width: 420px) { 
+  .movies-form {
+    width: 370px;
+  }
+}
+
+@media (min-width: 576px) { 
+  .movies-form {
+    width: 460px;
+  }
+ }
+
+.warning {
+  color: red;
+}
+

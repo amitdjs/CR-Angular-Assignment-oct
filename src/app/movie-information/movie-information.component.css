@@ -28,3 +28,21 @@
   border-radius: 50%;
   border: 1px solid #ff4081;
 }
+
+@media (min-width: 260px) { 
+  .movies-information {
+  width: 265px;
+}
+}
+
+@media (min-width: 420px) { 
+  .movies-information {
+  width: 370px;
+}
+}
+
+@media (min-width: 576px) { 
+    .movies-information {
+    width: 460px;
+  }
+ }

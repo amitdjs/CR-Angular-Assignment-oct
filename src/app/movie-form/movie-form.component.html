@@ -20,8 +20,9 @@
   </mat-form-field>
 
   <mat-form-field class="movie-ratings">
-    <input matInput formControlName="ratings" placeholder="Movie Ratings">
+    <input name="rating" [(ngModel)]="rating" matInput formControlName="ratings" placeholder="Movie Ratings">
   </mat-form-field>
+  <p class="warning" *ngIf="ratingInvalid">Please enter valid rating beteen 1 to 10</p>
 
-  <button class="create-button" mat-flat-button color="primary">Add Movie</button>
+  <button [disabled]="isFormInvalid" class="create-button" mat-flat-button color="primary">Add Movie</button>
 </form>
