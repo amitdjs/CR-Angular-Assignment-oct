@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Movie } from "../movie";
 import { MovieInformationService } from "./movie-information.service";
@@ -14,16 +14,16 @@ export class MovieInformationComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _movieInformationService: MovieInformationService
-  ) {}
+    private _movieInformationService: MovieInformationService  ) {}
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
-      setTimeout(() => {
+        setTimeout(() => {
         this.movie = this._movieInformationService.getMovieById(
           params["id"]
         )[0];
-      }, 1000);
+
+        }, 1000);
     });
   }
 }

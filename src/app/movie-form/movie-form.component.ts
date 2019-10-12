@@ -29,7 +29,7 @@ export class MovieFormComponent implements OnInit {
       moviesData.push(this.movieFom.value);
       localStorage.setItem("movies-data", JSON.stringify(moviesData));
     }
-    console.log(this.movieFom.value);
+    console.log(this.movieFom);
     this._router.navigate(["/"]);
   }
 }

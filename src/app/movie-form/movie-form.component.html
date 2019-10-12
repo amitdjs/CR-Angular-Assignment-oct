@@ -20,8 +20,11 @@
   </mat-form-field>
 
   <mat-form-field class="movie-ratings">
-    <input matInput formControlName="ratings" placeholder="Movie Ratings">
+    <input matInput formControlName="ratings" placeholder="Movie Ratings" type="number" min="1" max="10">
   </mat-form-field>
+  <div class = "errorField" *ngIf="movieFom.value.ratings > 10 && movieFom.controls['ratings']['dirty'] ">
+    Rating must be between 1 and 10 only
+  </div>
 
-  <button class="create-button" mat-flat-button color="primary">Add Movie</button>
+  <button class="create-button" mat-flat-button color="primary" [disabled]="movieFom.status == 'INVALID' || movieFom.value.ratings>10">Add Movie</button>
 </form>
