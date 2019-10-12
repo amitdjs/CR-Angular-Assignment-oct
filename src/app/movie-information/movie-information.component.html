@@ -8,6 +8,6 @@
   <img class="movie_img" [src]=" '../assets/images/' + movie.image "/>
   <h2> {{movie.movieName}}</h2>
   <h3> ( {{movie.movieType}} ) </h3>
-  <h4> Released On: {{movie.releasedOn}}</h4>
+  <h4> Released On: {{movie.releasedOn | customDate}}</h4>
   <h4> Ratings: {{movie.ratings | number}}</h4>
 </div>
