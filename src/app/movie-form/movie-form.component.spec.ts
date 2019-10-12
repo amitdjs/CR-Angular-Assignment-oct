@@ -21,4 +21,7 @@ describe("HomeComponent", () => {
   it("should create Movie-Form-Component", () => {
     expect(component).toBeTruthy();
   });
+  it("should create Movie-Form-Component", () => {
+    expect(component).toBeTruthy();
+  });
 });
