@@ -13,13 +13,13 @@ export class MovieFormComponent implements OnInit {
     movieName: new FormControl("", Validators.required),
     movieType: new FormControl("", Validators.required),
     releasedOn: new FormControl("", Validators.required),
-    ratings: new FormControl("", Validators.required)
+    ratings: new FormControl("", [ Validators.required, Validators.min(1), Validators.max(10)])
   });
-
+  
   constructor(private _router: Router) {}
 
-  ngOnInit() {}
-
+  ngOnInit() {this.movieFom.controls.releasedOn.hasError(',')}
+  
   public createMovie() {
     const moviesData = JSON.parse(localStorage.getItem("movies-data"));
     if (moviesData && moviesData.length) {

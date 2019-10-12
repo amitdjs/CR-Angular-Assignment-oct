@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, ParamMap } from "@angular/router";
 import { Movie } from "../movie";
 import { MovieInformationService } from "./movie-information.service";
+import { AUTOCOMPLETE_OPTION_HEIGHT } from '@angular/material';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: "app-movie-information",
@@ -10,7 +12,9 @@ import { MovieInformationService } from "./movie-information.service";
   providers: [MovieInformationService]
 })
 export class MovieInformationComponent implements OnInit {
+  private movieId;
   private movie: Movie;
+  private movieListObservable: Subscription;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -19,11 +23,23 @@ export class MovieInformationComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
-      setTimeout(() => {
-        this.movie = this._movieInformationService.getMovieById(
-          params["id"]
-        )[0];
-      }, 1000);
+      this.subscribeToMovieList(params['id']);
     });
+  }
+
+  subscribeToMovieList(movieId) {
+    this.movieListObservable = this._movieInformationService.getMovieListUpdateObs().subscribe({
+      next: (value: boolean) => {
+          if (value) {
+            this.getMovieDetails(movieId);
+            this.movieListObservable.unsubscribe();
+          }
+      }
+  });
+  }
+
+  getMovieDetails(id) {
+    this.movie = this._movieInformationService.getMovieById(id)[0];
+    console.log(this.movie);
   }
 }
