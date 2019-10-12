@@ -29,6 +29,16 @@ describe("MovieListComponent", () => {
 
   it("If movies-data exist in localstorage then get movies data", () => {
     //@todo write a test case for above condition. Please set the movies-data in localStorage and then verify if it exist.
+    let localstorageData = [
+      {"id":"1","movieName":"Captain America","movieType":"Action","releasedOn":"1920-07-04","ratings":"8","image":"captain_america.jpeg"},
+      {"id":"2","movieName":"Iron Man","movieType":"Action","releasedOn":"1965-04-04","ratings":"7","image":"iron_man.jpeg"}
+    ];
+    localStorage.setItem("movies-data",JSON.stringify(localstorageData));
+    expect(localStorage.getItem("movies-data")).toBeTruthy();
+    spyOn(service, 'getJSON').and.callThrough();
+    });
+    component.callMovieList();
+    expect(service.getJSON).toHaveBeenCalled();
   });
 
   it("If movies-data does not exist in localsotrage then get movies data", () => {
