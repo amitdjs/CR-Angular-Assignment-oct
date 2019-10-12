@@ -25,3 +25,11 @@
 .movies-form .mat-form-field {
   width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-form {
+    padding: none;
+    width: 75%;
+  }
+
+} 

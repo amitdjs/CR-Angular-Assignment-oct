@@ -28,3 +28,11 @@
   border-radius: 50%;
   border: 1px solid #ff4081;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-information {
+    padding: none;
+    width: 75%;
+  }
+
+} 
