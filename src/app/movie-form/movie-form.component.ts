@@ -3,17 +3,22 @@ import { Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Movie } from "../movie";
 
+
 @Component({
   selector: "app-movie-form",
   templateUrl: "./movie-form.component.html",
   styleUrls: ["./movie-form.component.css"]
 })
 export class MovieFormComponent implements OnInit {
+  movieName = '';
+  movieType = '';
+  releasedOn = '';
+  ratings = 0;
   public movieFom: FormGroup = new FormGroup({
-    movieName: new FormControl("", Validators.required),
-    movieType: new FormControl("", Validators.required),
-    releasedOn: new FormControl("", Validators.required),
-    ratings: new FormControl("", Validators.required)
+    movieName: new FormControl(this.movieName, Validators.required),
+    movieType: new FormControl(this.movieType, Validators.required),
+    releasedOn: new FormControl(this.releasedOn, Validators.required),
+    ratings: new FormControl(this.ratings, Validators.required)
   });
 
   constructor(private _router: Router) {}

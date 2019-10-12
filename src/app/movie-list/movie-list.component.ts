@@ -10,7 +10,8 @@ import { Movie } from "../movie";
 })
 export class MovieListComponent implements OnInit {
   public moviesList: Array<Movie> = [];
-
+  todaydate = new Date(); 
+  
   constructor(private _movieListService: MovieListService) {
     this.getList();
   }

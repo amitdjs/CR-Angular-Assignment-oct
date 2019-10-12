@@ -25,5 +25,8 @@ export class MovieInformationComponent implements OnInit {
         )[0];
       }, 1000);
     });
+
+    const id = +this._activatedRoute.snapshot.paramMap.get('id');
+    this.movie = this._movieInformationService.getMovieById(id)[0];    
   }
 }
