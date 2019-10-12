@@ -29,6 +29,8 @@ describe("MovieListComponent", () => {
 
   it("If movies-data exist in localstorage then get movies data", () => {
     //@todo write a test case for above condition. Please set the movies-data in localStorage and then verify if it exist.
+    component.callMovieList();
+    expect(localStorage.getItem("movies-data")).toBeTruthy();
   });
 
   it("If movies-data does not exist in localsotrage then get movies data", () => {

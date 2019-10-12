@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MovieListService } from "./movie-list.service";
 import { Movie } from "../movie";
+import { MovieInformationService } from "src/app/movie-information/movie-information.service";
 
 @Component({
   selector: "app-movie-list",
@@ -11,9 +12,10 @@ import { Movie } from "../movie";
 export class MovieListComponent implements OnInit {
   public moviesList: Array<Movie> = [];
 
-  constructor(private _movieListService: MovieListService) {
+  constructor(private _movieListService: MovieListService,private _movieInformationService: MovieInformationService ) {
     this.getList();
   }
+
   getList() {
     const moviesData = JSON.parse(localStorage.getItem("movies-data"));
     if (moviesData && moviesData.length) {
@@ -29,6 +31,8 @@ export class MovieListComponent implements OnInit {
       localStorage.setItem("movies-data", JSON.stringify(data));
     });
   }
+
+  
 
   ngOnInit() {}
 }

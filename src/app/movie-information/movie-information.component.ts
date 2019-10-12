@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Movie } from "../movie";
 import { MovieInformationService } from "./movie-information.service";
+import { FormatDatePipe } from "./format-date.pipe";
 
 @Component({
   selector: "app-movie-information",
@@ -14,7 +15,8 @@ export class MovieInformationComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _movieInformationService: MovieInformationService
+    private _movieInformationService: MovieInformationService,
+    private formatDate: FormatDatePipe
   ) {}
 
   ngOnInit() {

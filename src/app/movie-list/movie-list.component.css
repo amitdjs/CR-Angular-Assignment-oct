@@ -2,6 +2,7 @@
   position: relative;
   background-color: #303f9f;
   padding: 50px;
+  max-width: 100%;
 }
 .header h1 {
   color: #ffffff;
@@ -27,6 +28,7 @@ button.add-movie-button {
 
 .movies_list {
   list-style: none;
+  max-width: 100%;
 }
 .movies_list li {
   display: flex;

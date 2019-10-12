@@ -11,13 +11,16 @@ import { AppComponent } from "./app.component";
 import { MovieListComponent } from "./movie-list/movie-list.component";
 import { MovieFormComponent } from "./movie-form/movie-form.component";
 import { MovieInformationComponent } from "./movie-information/movie-information.component";
+import { FormatDatePipe } from './movie-information/format-date.pipe';
+import { MovieInformationService } from "./movie-information/movie-information.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     MovieFormComponent,
-    MovieInformationComponent
+    MovieInformationComponent,
+    FormatDatePipe
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { MovieInformationComponent } from "./movie-information/movie-information
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MovieInformationService, FormatDatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
