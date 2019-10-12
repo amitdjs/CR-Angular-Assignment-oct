@@ -25,3 +25,7 @@
 .movies-form .mat-form-field {
   width: 100%;
 }
+
+.requireField{
+  color:red;
+}

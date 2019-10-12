@@ -6,22 +6,67 @@
 <form class="movies-form" [formGroup]="movieFom" (ngSubmit)="createMovie()">
   <h1>Movie Form</h1>
   <mat-form-field class="movie-name">
-    <input matInput formControlName="movieName" placeholder="Movie Name">
+    <input matInput formControlName="movieName" placeholder="Movie Name" />
+    <div
+      *ngIf="
+        (movieName.dirty || movieName.touched) && movieName.errors.required
+      "
+      class="requireField"
+    >
+      Movie Name is required.
+    </div>
   </mat-form-field>
 
   <mat-form-field class="movie-type">
-    <input matInput formControlName="movieType" placeholder="Movie Type">
+    <input matInput formControlName="movieType" placeholder="Movie Type" />
+    <div
+      *ngIf="
+        (movieType.dirty || movieType.touched) && movieType.errors.required
+      "
+      class="requireField"
+    >
+      Movie Type is required.
+    </div>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput formControlName="releasedOn" [matDatepicker]="picker" placeholder="Released Date">
+    <input
+      matInput
+      formControlName="releasedOn"
+      [matDatepicker]="picker"
+      placeholder="Released Date"
+    />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
+    <div
+      *ngIf="
+        (releasedOn.dirty || releasedOn.touched) && releasedOn.errors.required
+      "
+      class="requireField"
+    >
+      Released On Date is required.
+    </div>
   </mat-form-field>
 
   <mat-form-field class="movie-ratings">
-    <input matInput formControlName="ratings" placeholder="Movie Ratings">
+    <input matInput formControlName="ratings" placeholder="Movie Ratings" />
+    <div
+      *ngIf="(ratings.dirty || ratings.touched) && ratings.errors.required"
+      class="requireField"
+    >
+      Ratings is required.
+    </div>
+    <div *ngIf="rating.invalid && ratings.invalidRating">
+      Rating has to be a number between 0 to 10.
+    </div>
   </mat-form-field>
 
-  <button class="create-button" mat-flat-button color="primary">Add Movie</button>
+  <button
+    class="create-button"
+    [disabled]="movieFom.invalid"
+    mat-flat-button
+    color="primary"
+  >
+    Add Movie
+  </button>
 </form>

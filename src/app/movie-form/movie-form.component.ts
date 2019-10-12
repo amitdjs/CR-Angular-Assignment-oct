@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Movie } from "../movie";
+import {DatePattern} from '../date-pattern';
 
 @Component({
   selector: "app-movie-form",
@@ -13,7 +14,10 @@ export class MovieFormComponent implements OnInit {
     movieName: new FormControl("", Validators.required),
     movieType: new FormControl("", Validators.required),
     releasedOn: new FormControl("", Validators.required),
-    ratings: new FormControl("", Validators.required)
+    ratings: new FormControl("", [
+      Validators.required,
+      Validators.pattern("[0-9]{1}")
+    ])
   });
 
   constructor(private _router: Router) {}
@@ -31,5 +35,21 @@ export class MovieFormComponent implements OnInit {
     }
     console.log(this.movieFom.value);
     this._router.navigate(["/"]);
+  }
+
+  get movieName() {
+    return this.movieFom.get("movieName");
+  }
+
+  get movieType() {
+    return this.movieFom.get("movieType");
+  }
+
+  get releasedOn() {
+    return this.movieFom.get("releasedOn");
+  }
+
+  get ratings() {
+    return this.movieFom.get("ratings");
   }
 }
