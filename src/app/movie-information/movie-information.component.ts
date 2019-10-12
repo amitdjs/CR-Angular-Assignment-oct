@@ -24,6 +24,16 @@ export class MovieInformationComponent implements OnInit {
           params["id"]
         )[0];
       }, 1000);
+      // this.getMovieDetails(params["id"]);
     });
   }
+
+  // getMovieDetails(id) {
+  //   this._movieInformationService.getMovieById(id).subscribe((movieDataReceived: any) => {
+  //     if (movieDataReceived) {
+  //       this.movie = movieDataReceived;
+  //       console.log(movieDataReceived);
+  //     }
+  //   });
+  // }
 }
