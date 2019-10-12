@@ -28,3 +28,9 @@
   border-radius: 50%;
   border: 1px solid #ff4081;
 }
+
+@media only screen and (max-width: 600px) {
+  .movies-information {
+    width: 370px;
+  }
+}

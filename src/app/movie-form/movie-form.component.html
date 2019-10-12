@@ -3,25 +3,31 @@
     <i class="fa fa-arrow-left"></i> Movies List
   </h4>
 </div>
+
 <form class="movies-form" [formGroup]="movieFom" (ngSubmit)="createMovie()">
+  <p *ngIf="movieFom.invalid && movieFom.touched">*Please fill the required details</p> 
   <h1>Movie Form</h1>
   <mat-form-field class="movie-name">
-    <input matInput formControlName="movieName" placeholder="Movie Name">
+    <input matInput formControlName="movieName" placeholder="*Movie Name">
   </mat-form-field>
+  <p *ngIf="movieFom.controls['movieName'].errors && !movieFom.controls['movieName'].pristine || movieFom.controls['movieName'].touched"> Movie Name is required </p>
 
   <mat-form-field class="movie-type">
-    <input matInput formControlName="movieType" placeholder="Movie Type">
+    <input matInput formControlName="movieType" placeholder="*Movie Type">
   </mat-form-field>
+  <p *ngIf="movieFom.controls['movieType'].errors && !movieFom.controls['movieType'].pristine || movieFom.controls['movieType'].touched"> Movie Type is required </p>
 
   <mat-form-field>
-    <input matInput formControlName="releasedOn" [matDatepicker]="picker" placeholder="Released Date">
+    <input matInput formControlName="releasedOn" [matDatepicker]="picker" placeholder="*Released Date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  <p *ngIf="movieFom.controls['releasedOn'].errors && !movieFom.controls['releasedOn'].pristine || movieFom.controls['releasedOn'].touched"> Released Date is required </p>
 
   <mat-form-field class="movie-ratings">
-    <input matInput formControlName="ratings" placeholder="Movie Ratings">
+    <input matInput formControlName="ratings" placeholder="Movie Ratings from 1 to 10"> 
   </mat-form-field>
+  <p *ngIf="movieFom.controls['ratings'].errors && !movieFom.controls['ratings'].pristine || movieFom.controls['ratings'].touched"> Ratings should be from 1 to 10 </p>
 
-  <button class="create-button" mat-flat-button color="primary">Add Movie</button>
+  <button class="create-button" [disabled]="movieFom.invalid" mat-flat-button color="primary">Add Movie</button>
 </form>
