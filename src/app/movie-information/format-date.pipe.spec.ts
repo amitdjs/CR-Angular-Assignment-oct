@@ -8,6 +8,6 @@ describe('FormatDatePipe', () => {
 
   it('return a correct date', () => {
     const pipe = new FormatDatePipe();
-    expect(pipe.transform(new Date())).toEqual(new Date());
+    expect(pipe.transform('2019-10-12')).toEqual("12th October 2019");
   });
 });
