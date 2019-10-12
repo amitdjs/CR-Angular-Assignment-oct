@@ -1,3 +1,6 @@
+# Code Realm Angular Assignment
+
+
 The existing app is a simple list app for which you can perform the following operations -
 
 1.  View the list of movies
