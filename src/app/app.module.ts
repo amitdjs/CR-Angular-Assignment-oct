@@ -11,13 +11,15 @@ import { AppComponent } from "./app.component";
 import { MovieListComponent } from "./movie-list/movie-list.component";
 import { MovieFormComponent } from "./movie-form/movie-form.component";
 import { MovieInformationComponent } from "./movie-information/movie-information.component";
+import { DatePipePipe } from './shared/date-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
     MovieFormComponent,
-    MovieInformationComponent
+    MovieInformationComponent,
+    DatePipePipe
   ],
   imports: [
     BrowserModule,

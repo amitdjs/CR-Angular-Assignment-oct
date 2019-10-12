@@ -23,5 +23,5 @@
     <input matInput formControlName="ratings" placeholder="Movie Ratings">
   </mat-form-field>
 
-  <button class="create-button" mat-flat-button color="primary">Add Movie</button>
+  <button class="create-button" mat-flat-button color="primary" [disabled]="!movieFom.valid">Add Movie</button>
 </form>

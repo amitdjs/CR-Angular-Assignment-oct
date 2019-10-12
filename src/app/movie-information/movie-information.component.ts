@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Movie } from "../movie";
 import { MovieInformationService } from "./movie-information.service";
+import { DatePipePipe } from "../shared/date-pipe.pipe";
 
 @Component({
   selector: "app-movie-information",

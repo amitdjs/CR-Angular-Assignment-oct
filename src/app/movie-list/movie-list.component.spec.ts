@@ -4,6 +4,7 @@ import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MovieListComponent } from "./movie-list.component";
 import { MovieListService } from "./movie-list.service";
+import { Movie } from '../movie';
 
 describe("MovieListComponent", () => {
   let fixture: ComponentFixture<MovieListComponent>;
@@ -29,13 +30,23 @@ describe("MovieListComponent", () => {
 
   it("If movies-data exist in localstorage then get movies data", () => {
     //@todo write a test case for above condition. Please set the movies-data in localStorage and then verify if it exist.
+    localStorage.setItem("movies-data", "movies Data")
+    const response = spyOn(service, 'getJSON').and.callThrough();
+    expect(localStorage.getItem("movies-data")).toBeTruthy();
+    component.callMovieList();
+    expect(service.getJSON).toHaveBeenCalled();
   });
 
   it("If movies-data does not exist in localsotrage then get movies data", () => {
-    const response = [];
     //@todo write spy for service.getJSON method and return response
+    const response = spyOn(service, 'getJSON').and.callThrough();
     expect(localStorage.getItem("movies-data")).toBeFalsy();
     component.callMovieList();
     expect(service.getJSON).toHaveBeenCalled();
   });
+
+  it("movie name should not be undefined", () => {
+    expect(debugElement.nativeElement.querySelector('h2')).not.toBeUndefined();
+  })
+
 });

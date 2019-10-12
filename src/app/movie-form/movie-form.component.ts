@@ -13,7 +13,7 @@ export class MovieFormComponent implements OnInit {
     movieName: new FormControl("", Validators.required),
     movieType: new FormControl("", Validators.required),
     releasedOn: new FormControl("", Validators.required),
-    ratings: new FormControl("", Validators.required)
+    ratings: new FormControl("", [Validators.required, Validators.min(1), Validators.max(10)])
   });
 
   constructor(private _router: Router) {}
