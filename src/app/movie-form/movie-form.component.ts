@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl,  FormGroup, Validators } from "@angular/forms";
 import { Movie } from "../movie";
 
 @Component({
@@ -21,6 +21,7 @@ export class MovieFormComponent implements OnInit {
   ngOnInit() {}
 
   public createMovie() {
+
     const moviesData = JSON.parse(localStorage.getItem("movies-data"));
     if (moviesData && moviesData.length) {
       let movie: Movie = this.movieFom.value;
@@ -32,4 +33,5 @@ export class MovieFormComponent implements OnInit {
     console.log(this.movieFom.value);
     this._router.navigate(["/"]);
   }
+
 }

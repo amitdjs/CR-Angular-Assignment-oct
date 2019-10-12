@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
 
 $dark-primary-color: #303F9F;
 $default-primary-color: #3F51B5;
@@ -13,4 +14,25 @@ $divider-color: #BDBDBD;
 
 body {
   font-family: 'Roboto', sans-serif;
+
+  .header {
+    position: relative;
+    background-color: #303f9f;
+    padding: 50px;
+    padding-top: 10px;
+  }
+  
+
+  .back-to-list {
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .back-to-list:focus, .back-to-list:active{
+    outline:0;
+    box-shadow: none;
+  }
 }
+
+

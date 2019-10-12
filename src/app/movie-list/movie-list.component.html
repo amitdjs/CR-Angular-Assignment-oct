@@ -3,17 +3,18 @@
   <button
     class="add-movie-button"
     routerLink="/add-movie"
-    routerLinkActive="active"
-  >
+    routerLinkActive="active">
     <i class="fa fa-plus"></i>
   </button>
 </div>
-<ul class="movies_list">
-  <li
-    *ngFor="let movie of moviesList"
-    [routerLink]="'/movie-information/' + movie.id"
-  >
-    <img class="movie_img" [src]=" '../assets/images/' + movie.image " />
-    <h2>{{movie.movieName}}</h2>
-  </li>
-</ul>
+
+
+    <ul class="movies_list p-3 m-0">
+      <li class="d-flex align-content-center"
+        *ngFor="let movie of moviesList"
+        [routerLink]="'/movie-information/' + movie.id">
+        <img class="movie_img mr-3" [src]=" '../assets/images/' + movie.image " />
+        <h2 class="align-self-center">{{movie.movieName}}</h2>
+      </li>
+    </ul>
+    

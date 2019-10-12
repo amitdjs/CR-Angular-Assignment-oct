@@ -1,13 +1,17 @@
 <div class="header">
-  <h4 class="back-to-list" routerLink="/" routerLinkActive="active">
+  <div class="back-to-list py-3" routerLink="/" routerLinkActive="active">
     <i class="fa fa-arrow-left"></i> Movies List
-  </h4>
+  </div>
 </div>
-<div class="movies-information" *ngIf="movie">
-
-  <img class="movie_img" [src]=" '../assets/images/' + movie.image "/>
-  <h2> {{movie.movieName}}</h2>
-  <h3> ( {{movie.movieType}} ) </h3>
-  <h4> Released On: {{movie.releasedOn}}</h4>
-  <h4> Ratings: {{movie.ratings | number}}</h4>
+<div class="container-fluid">
+<div class="row justify-content-center">
+  <div class="movies-information mx-5" *ngIf="movie">
+    <img class="movie_img" [src]=" '../assets/images/' + movie.image "/>
+    <h5 class="my-4"> {{movie.movieName}}</h5>
+    <h6> ( {{movie.movieType}} ) </h6>
+    <h6 class="mb-4"> Released On: {{movie.releasedOn | date : 'd MMM, y'}}</h6>
+    <h6> Ratings: {{movie.ratings | number}}</h6>
+  </div>
+  
+</div>
 </div>

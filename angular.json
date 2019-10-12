@@ -78,7 +78,7 @@
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
-          "options": {
+          "options": { 
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
@@ -137,5 +137,6 @@
       }
     }
   },
-  "defaultProject": "movies"
+  "defaultProject": "movies",
+  
 }

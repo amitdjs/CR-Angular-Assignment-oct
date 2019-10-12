@@ -3,25 +3,51 @@
     <i class="fa fa-arrow-left"></i> Movies List
   </h4>
 </div>
-<form class="movies-form" [formGroup]="movieFom" (ngSubmit)="createMovie()">
+<div class="container-fluid">
+  <div class="row justify-content-center">
+      
+<form class="movies-form mx-5" [formGroup]="movieFom" (ngSubmit)="createMovie()">
   <h1>Movie Form</h1>
   <mat-form-field class="movie-name">
     <input matInput formControlName="movieName" placeholder="Movie Name">
   </mat-form-field>
+  <div *ngIf="movieFom.controls['movieName'].invalid && (movieFom.controls['movieName'].dirty || movieFom.controls['movieName'].touched)" class="alert alert-danger">
+    <div *ngIf="movieFom.controls['movieName'].errors.required">
+    Name is required.
+  </div>
+</div>
 
   <mat-form-field class="movie-type">
     <input matInput formControlName="movieType" placeholder="Movie Type">
   </mat-form-field>
+  <div *ngIf="movieFom.controls['movieType'].invalid && (movieFom.controls['movieType'].dirty || movieFom.controls['movieType'].touched)" class="alert alert-danger">
+    <div *ngIf="movieFom.controls['movieType'].errors.required">
+    Name is required.
+  </div>
+</div>
 
   <mat-form-field>
     <input matInput formControlName="releasedOn" [matDatepicker]="picker" placeholder="Released Date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  <div *ngIf="movieFom.controls['releasedOn'].invalid && (movieFom.controls['releasedOn'].dirty || movieFom.controls['releasedOn'].touched)" class="alert alert-danger">
+    <div *ngIf="movieFom.controls['releasedOn'].errors.required">
+    Name is required.
+  </div>
+</div>
 
   <mat-form-field class="movie-ratings">
-    <input matInput formControlName="ratings" placeholder="Movie Ratings">
+    <input matInput formControlName="ratings" min='1' max="10" placeholder="Movie Ratings">
   </mat-form-field>
+  <div *ngIf="movieFom.controls['ratings'].invalid && (movieFom.controls['ratings'].dirty || movieFom.controls['ratings'].touched)" class="alert alert-danger">
+    <div *ngIf="movieFom.controls['ratings'].errors.required">
+    Name is required.
+  </div>
+</div>
 
-  <button class="create-button" mat-flat-button color="primary">Add Movie</button>
+<button class="create-button" [disabled]="movieFom.invalid" mat-flat-button color="primary">Add Movie</button>
 </form>
+
+  </div>
+</div>

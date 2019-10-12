@@ -29,9 +29,7 @@ button.add-movie-button {
   list-style: none;
 }
 .movies_list li {
-  display: flex;
-  padding: 10px;
-  width: 80%;
+  padding: 15px;
 }
 
 .movies_list li:hover {
@@ -39,13 +37,9 @@ button.add-movie-button {
   background-color: #c0c0c0;
 }
 
-.movies_list h2 {
-  margin-left: 20px;
-}
 
 .movies_list .movie_img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-top: 10px;
 }
