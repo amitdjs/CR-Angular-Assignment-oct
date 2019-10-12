@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { HomeComponent } from "./home.component";
+import { By } from '@angular/platform-browser';
 
 describe("HomeComponent", () => {
   let component: HomeComponent;
@@ -19,6 +20,7 @@ describe("HomeComponent", () => {
   });
 
   it("should create component", () => {
-    expect(component).toBeTruthy();
+    let message = fixture.debugElement.query(By.css('#home-page-msg'));
+    expect(message.nativeElement.textContent).toContain("All Set for Code Realm!")
   });
 });

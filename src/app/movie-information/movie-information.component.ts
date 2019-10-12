@@ -19,7 +19,7 @@ export class MovieInformationComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
-      setTimeout(() => {
+      setTimeout(() => { // tried to use async pipe in html instead of setTimeOut but did not make it work
         this.movie = this._movieInformationService.getMovieById(
           params["id"]
         )[0];
