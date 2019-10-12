@@ -6,7 +6,7 @@ import { MovieInformationService } from "./movie-information.service";
 @Component({
   selector: "app-movie-information",
   templateUrl: "./movie-information.component.html",
-  styleUrls: ["./movie-information.component.css"],
+  styleUrls: ["./movie-information.component.scss"],
   providers: [MovieInformationService]
 })
 export class MovieInformationComponent implements OnInit {
@@ -20,9 +20,9 @@ export class MovieInformationComponent implements OnInit {
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
       setTimeout(() => {
-        this.movie = this._movieInformationService.getMovieById(
+        this._movieInformationService.getMovieById(
           params["id"]
-        )[0];
+        )[0]
       }, 1000);
     });
   }

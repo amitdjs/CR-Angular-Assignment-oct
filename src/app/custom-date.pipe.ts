@@ -5,11 +5,8 @@ import * as moment from 'moment';
 })
 export class CustomDatePipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    debugger;
-    value = moment(value).format("Do MMM, YYYY");
-    let date = new Date(value);
-    return ;
+  transform(value: any): any {
+    return moment(value).format("Do MMM, YYYY");
   }
 
 }

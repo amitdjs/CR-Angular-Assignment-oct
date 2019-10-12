@@ -3,25 +3,37 @@
     <i class="fa fa-arrow-left"></i> Movies List
   </h4>
 </div>
-<form class="movies-form" [formGroup]="movieFom" (ngSubmit)="createMovie()">
+<form class="movies-form" [formGroup]="movieFom" (ngSubmit)="movieFom.valid && createMovie()" >
   <h1>Movie Form</h1>
   <mat-form-field class="movie-name">
     <input matInput formControlName="movieName" placeholder="Movie Name">
   </mat-form-field>
+  <mat-error>  
+    <span *ngIf="movieFom.get('movieName').touched && movieFom.get('movieName').invalid">Field cannot be empty!</span>  
+  </mat-error>
 
   <mat-form-field class="movie-type">
     <input matInput formControlName="movieType" placeholder="Movie Type">
   </mat-form-field>
+  <mat-error>  
+    <span *ngIf="movieFom.get('movieType').touched && movieFom.get('movieType').invalid">Field cannot be empty!</span>  
+  </mat-error>
 
   <mat-form-field>
     <input matInput formControlName="releasedOn" [matDatepicker]="picker" placeholder="Released Date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  <mat-error>  
+    <span *ngIf="movieFom.get('releasedOn').touched && movieFom.get('releasedOn').invalid">Field cannot be empty!</span>  
+  </mat-error>
 
   <mat-form-field class="movie-ratings">
-    <input matInput formControlName="ratings" placeholder="Movie Ratings">
+    <input matInput formControlName="ratings" placeholder="Movie Ratings" [ngClass]="{'is-invalid':movieFom.get('ratings').touched && movieFom.get('ratings').invalid}">  
   </mat-form-field>
+  <mat-error>  
+    <span *ngIf="movieFom.get('ratings').touched && movieFom.get('ratings').invalid">Only numbers between 0 to 10 allowed</span>  
+  </mat-error>
 
-  <button class="create-button" mat-flat-button color="primary">Add Movie</button>
+  <button class="create-button" mat-flat-button color="primary" [disabled]="!movieFom.valid">Add Movie</button>
 </form>
