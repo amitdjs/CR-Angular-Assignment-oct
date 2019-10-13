@@ -1,16 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { Movie } from "../movie";
 
 @Injectable()
 export class MovieInformationService {
   private movieList: Array<Movie> = [];
-
+  
   constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {
-      this.movieList = data;
-    });
+    
   }
 
   public getJSON(): Observable<any> {
@@ -18,12 +17,16 @@ export class MovieInformationService {
   }
 
   public getMovieById(id) {
-    if (id < 3) {
-      return this.movieList.filter(movie => movie["id"] === id);
-    } else {
-      const movieData = JSON.parse(localStorage.getItem("movies-data"));
-      return movieData.filter(movie => movie["id"] === id);
-    }
-    return [];
+    return this.getJSON().pipe(
+      map(movies=>{
+        if (id < 3) {
+          return movies.find(movie => movie["id"] === id);
+        } else {
+          const movieData = JSON.parse(localStorage.getItem("movies-data"));
+          return movieData.find(movie => movie["id"] === id);
+        }
+      })
+    );
+    
   }
 }

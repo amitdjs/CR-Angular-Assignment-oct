@@ -19,11 +19,11 @@ export class MovieInformationComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
-      setTimeout(() => {
-        this.movie = this._movieInformationService.getMovieById(
+      this._movieInformationService.getMovieById(
           params["id"]
-        )[0]
-      }, 1000);
+        ).subscribe(data=>{
+          this.movie =data;
+        });
     });
   }
 }
