@@ -18,7 +18,9 @@ export class MovieFormComponent implements OnInit {
 
   constructor(private _router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.movieFom.valid);
+  }
 
   public createMovie() {
     const moviesData = JSON.parse(localStorage.getItem("movies-data"));

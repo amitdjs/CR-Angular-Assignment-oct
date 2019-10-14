@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Movie } from "../movie";
 import { MovieInformationService } from "./movie-information.service";
+// import {Observable, of} from "rxjs";
+// import 'rxjs/add/observable/of';
 
 @Component({
   selector: "app-movie-information",
@@ -24,6 +26,13 @@ export class MovieInformationComponent implements OnInit {
           params["id"]
         )[0];
       }, 1000);
+    // Observable.of(true)
+    // .delay(1000)
+    // .do(() => {
+    //   this.movie = this._movieInformationService.getMovieById(
+    //     params["id"]
+    //   )[0];
+    // });
     });
   }
 }
